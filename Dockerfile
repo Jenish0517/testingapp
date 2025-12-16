@@ -1,5 +1,5 @@
-FROM eclipse-temurin:11-jre
+FROM openjdk:17
 WORKDIR /app
-COPY target/simple-java-jenkins-1.0.0.jar app.jar
+COPY target/java-docker-app-1.0.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
