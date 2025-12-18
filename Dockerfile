@@ -1,5 +1,6 @@
-FROM eclipse-temurin:21-jdk
+FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY target/java-docker-app-1.0.jar app.jar
-EXPOSE 8081
-ENTRYPOINT ["java","-jar","app.jar"]
+COPY . .
+RUN javac -d out src/main/java/com/example/App.java
+EXPOSE 8080
+CMD ["java", "-cp", "out", "com.example.App"]
